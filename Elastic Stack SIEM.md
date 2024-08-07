@@ -10,139 +10,138 @@ documentation: creating an Elastic Account and booting up my Kali VM.
 Now, I want to push telemetry from my Kali VM to the SIEM using an
 agent.
 
-### Setting up the SIEM to collect logs 
+## Setting up the SIEM to collect logs 
 
 I install an integration called "Elastic Defend" and paste the
 installation command onto my Kali's terminal
 
-![](output\Elastic Stack SIEM/media/image10.png){width="7.369792213473316in"
-height="5.125784120734908in"}
+![image10](https://github.com/user-attachments/assets/2fffd6f6-1611-48e4-9860-26bc5f28089d)
 
-![](output\Elastic Stack SIEM/media/image21.png){width="8.536458880139982in"
-height="3.02332895888014in"}
+
+![image21](https://github.com/user-attachments/assets/bf6152c0-b65a-4a1d-a4cb-72f4c10ae5a3)
+
 
 After some time, it installs successfully. I can also run a command,
 **sudo systemctl status elastic-agent.service** , just to verify
 everything is running
-normally.![](output\Elastic Stack SIEM/media/image13.png){width="8.994792213473316in"
-height="3.063850612423447in"}
+normally.
+![image13](https://github.com/user-attachments/assets/2eefc276-1d3e-46cb-9ca0-e5ebea646af7)
 
-![](output\Elastic Stack SIEM/media/image5.png){width="8.702199256342958in"
-height="2.432292213473316in"}
 
-### Generating Security Events
+![image5](https://github.com/user-attachments/assets/00f1ddb3-34a0-4577-968d-ae871b014cf7)
 
-#### Nmap
+
+## Generating Security Events
+
+### Nmap
 
 Now is the time to test this out. I can run some security related
 commands like running Nmap to create some events that the SIEM should
 pick up. I run some simple scans, then some more aggressive ones.
 
-![](output\Elastic Stack SIEM/media/image12.png){width="5.109375546806649in"
-height="3.852214566929134in"}
+![image12](https://github.com/user-attachments/assets/f9cac93b-707a-4f11-b633-d4d1c14e3693)
 
-![](output\Elastic Stack SIEM/media/image24.png){width="6.755208880139983in"
-height="5.347872922134733in"}
+![image24](https://github.com/user-attachments/assets/addfdccf-befc-4129-ba14-57ef6d9a8574)
 
-#### SSH
+
+### SSH
 
 I can also try and start an SSH session with other server to generate
 some logs
 
-![](output\Elastic Stack SIEM/media/image15.png){width="8.9375in"
-height="2.3541666666666665in"}
+![image15](https://github.com/user-attachments/assets/5e670f1d-9e5b-4b8f-afb3-39cd6c4d0235)
 
-![](output\Elastic Stack SIEM/media/image9.png){width="7.182292213473316in"
-height="4.945307305336833in"}
 
-### Querying for Security Events in the SIEM
+![image9](https://github.com/user-attachments/assets/7fa3729f-46bb-455d-b011-caca986f25ed)
+
+
+## Querying for Security Events in the SIEM
 
 Moving into the logs section of the SIEM, I can already see some
 telemetry generated
 
-![](output\Elastic Stack SIEM/media/image25.png){width="4.635416666666667in"
-height="3.3541666666666665in"}
+![image25](https://github.com/user-attachments/assets/399b6984-ad62-4f4d-989e-72e81012a513)
 
-#### Nmap
+
+### Nmap
 
 Now I can query for **process.args:"nmap"** and see events that
 correlate to the scans I conducted
 
-![](output\Elastic Stack SIEM/media/image6.png){width="5.213542213473316in"
-height="3.858559711286089in"}
+![image6](https://github.com/user-attachments/assets/7ab861f4-a877-43f3-b696-87c282778084)
 
-![](output\Elastic Stack SIEM/media/image16.png){width="10.0in"
-height="2.8055555555555554in"}
 
-![](output\Elastic Stack SIEM/media/image22.png){width="10.0in"
-height="2.5694444444444446in"}
+![image16](https://github.com/user-attachments/assets/07d56e5a-b386-4a30-aef0-21c371aaaaf3)
 
-#### SSH
+
+![image22](https://github.com/user-attachments/assets/0018ed05-10fa-42ba-9605-92c1bcf7327d)
+
+
+### SSH
 
 I can also see the SSH sessions I tried to start. Very useful to see
 attempted SSH logins that were either blocked or refused from an
 incorrect password
 
-![](output\Elastic Stack SIEM/media/image11.png){width="10.0in"
-height="2.7916666666666665in"}
+![image11](https://github.com/user-attachments/assets/71436ba1-c3c8-4d8a-9b92-f7ea69d2994a)
 
-![](output\Elastic Stack SIEM/media/image23.png){width="10.0in"
-height="2.8194444444444446in"}
 
-### Visualization
+![image23](https://github.com/user-attachments/assets/1baaf511-7860-4c99-9aff-03e8dd39c715)
+
+
+## Visualization
 
 A dashboard can be created to visualize these events, making it much
 easier to go through all these logs.
+![image14](https://github.com/user-attachments/assets/0a9487bc-5fe1-4749-b688-2282932acda8)
 
-![](output\Elastic Stack SIEM/media/image14.png){width="7.307292213473316in"
-height="4.223480971128609in"}
 
 I choose to visualize it with vertical bars, setting the axes to be
 Count of records vs Time
 
-![](output\Elastic Stack SIEM/media/image8.png){width="10.0in"
-height="3.625in"}
+![image8](https://github.com/user-attachments/assets/7124fd6d-1dc5-40f2-9219-780c9421237c)
+
 
 The time frame is too small, so I can change the settings to expand it.
 I also can mess around with different visualization methods..
 
-![](output\Elastic Stack SIEM/media/image20.png){width="4.613774059492563in"
-height="5.816060804899387in"}
+![image20](https://github.com/user-attachments/assets/a306384f-a7a9-4fc8-bd5d-94a42f8e258b)
 
-![](output\Elastic Stack SIEM/media/image2.png){width="6.713542213473316in"
-height="3.300824584426947in"}
 
-![](output\Elastic Stack SIEM/media/image7.png){width="6.630208880139983in"
-height="3.2792268153980753in"}
+![image2](https://github.com/user-attachments/assets/08526c4d-621a-4922-979c-ff17a2022624)
 
-### Creating an Alert
+
+![image7](https://github.com/user-attachments/assets/20030c56-072a-4c07-8bf0-4cd563b31a48)
+
+
+## Creating an Alert
 
 I will create an alert that will be triggered upon an Nmap scan to
 notify me when it is detected. This rule will run every 5 minutes and
 will send me an email when it's triggered by an Nmap scan.
 
-![](output\Elastic Stack SIEM/media/image4.png){width="8.03125in"
-height="1.5208333333333333in"}
+![image4](https://github.com/user-attachments/assets/64ee57c3-682c-49ca-a699-4ffa083f931b)
 
-![](output\Elastic Stack SIEM/media/image18.png){width="7.34375in"
-height="3.40625in"}
 
-![](output\Elastic Stack SIEM/media/image1.png){width="10.0in"
-height="5.013888888888889in"}
+![image18](https://github.com/user-attachments/assets/30cb86c2-1845-4c03-ab61-32568357b55c)
 
-![](output\Elastic Stack SIEM/media/image19.png){width="10.0in"
-height="4.958333333333333in"}
+
+![image1](https://github.com/user-attachments/assets/01308f2a-fde9-4d1d-9144-f25d50831b97)
+
+
+![image19](https://github.com/user-attachments/assets/a21aa6b6-bfa3-4ff5-bc53-b0ceeae7b3aa)
+
 
 Additional Nmap scans are conducted to trigger the rule and test if the
 alert works.
 
-![](output\Elastic Stack SIEM/media/image17.png){width="6.609375546806649in"
-height="4.982310804899387in"}
+![image17](https://github.com/user-attachments/assets/cb0d21d7-7b5b-47d0-8da1-3dd32545bdd5)
+
 
 And I get the email notifying me of the alert.
 
-![](output\Elastic Stack SIEM/media/image3.png){width="7.125in"
-height="4.260416666666667in"}
+![image3](https://github.com/user-attachments/assets/d05e6231-4415-4523-b7bb-3106ef49a53c)
+
 
 Overall, this was a beneficial lab. I set up an Elastic SIEM and a Kali
 VM, and had it so the VM would forward data to the SIEM using an Elastic
