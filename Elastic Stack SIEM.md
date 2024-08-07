@@ -25,6 +25,7 @@ After some time, it installs successfully. I can also run a command,
 **sudo systemctl status elastic-agent.service** , just to verify
 everything is running
 normally.
+
 ![image13](https://github.com/user-attachments/assets/2eefc276-1d3e-46cb-9ca0-e5ebea646af7)
 
 
