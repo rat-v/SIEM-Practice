@@ -1,9 +1,20 @@
+## Objective 
+
 In this project, I set up an Elastic Stack SIEM in my home lab. I
 practice generating events on a Kali VM, and get hands-on experience in
 installing an agent to forward the data to the SIEM. I also get
 experience in querying and analyzing the logs sent. I will also
 visualize the security and events and learn how to generate security
 alerts when a rule has been triggered.
+
+## Skills Learned
+Setting up a SIEM in a home lab environment<br>
+Installing and configuring an agent to forward telemetry data to the SIEM<br>
+Generating security events to test the SIEM setup<br>
+Querying and analyzing logs to identify security events<br>
+Visualizing the events to represent security data effectively<br>
+Setting up alerting mechanisms to trigger notifications based on specific security events<br>
+
 
 There were some initial steps I took that don't really need
 documentation: creating an Elastic Account and booting up my Kali VM.
